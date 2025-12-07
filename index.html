@@ -3,37 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock Paper And Scissor Game</title>
-    <link rel="stylesheet" href="game.css">
-
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Rock Paper And Scissor Game</h1>
-    <div class="choices">
-        <div class="choice" id="rock">
-            <img src="rock.png">
-        </div>
-        <div class="choice" id="paper">
-            <img src="paper.png">
-        </div>
-        <div class="choice" id="scissor">
-            <img src="scissor.png">
-        </div>
-    </div><br><br><br><br><br><br><br><br><br>
+    <div class="container">
+        <header>
+            <h1>Rock Paper Scissors</h1>
+            <p class="subtitle">Choose your weapon and challenge the computer!</p>
+            <div style="margin-top: 20px; display: flex; gap: 15px; justify-content: center;">
+                <button class="btn btn-mode" id="bestOf5Btn" style="background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);">Best of 5</button>
+                <button class="btn btn-mode" id="infiniteBtn" style="background: rgba(255,255,255,0.25); border: 2px solid rgba(255,255,255,0.3);">Infinite Mode</button>
+            </div>
+        </header>
 
-    <div class="scoreboard">
-        <div class="score">
-            <p id="user">0</p>
-            <p style="background-color:cornflowerblue; padding: 5px; border-radius: 5px;"><b>You</b></p>
+        <div class="game-info">
+            <div class="score-section">
+                <div class="score-box">
+                    <div class="score-label">You</div>
+                    <div class="score-value" id="userScore">0</div>
+                </div>
+                <div class="score-box">
+                    <div class="score-label">Computer</div>
+                    <div class="score-value" id="compScore">0</div>
+                </div>
+            </div>
+            <div class="stats">
+                <div class="stat-item">Rounds Played: <strong id="roundsPlayed">0</strong></div>
+                <div class="stat-item">Win Rate: <strong id="winRate">0%</strong></div>
+                <div class="stat-item">Streak: <strong id="streak">0</strong></div>
+            </div>
         </div>
-        <div class="score">
-            <p id="comp">0</p>
-            <p style="background-color: cornflowerblue; padding: 5px; border-radius: 5px;"><b>Computer</b></p>
+
+        <div class="game-area">
+            <div class="result-area" id="resultArea">
+                <div class="result-message">Ready to Play?</div>
+                <div class="result-detail">Choose a game mode above to start</div>
+            </div>
+
+            <div class="battle-display" id="battleDisplay" style="display: none;">
+                <div class="battle-choice">
+                    <div class="battle-icon" id="userBattleIcon">❓</div>
+                    <div class="battle-label">You</div>
+                </div>
+                <div class="vs-text">VS</div>
+                <div class="battle-choice">
+                    <div class="battle-icon" id="compBattleIcon">❓</div>
+                    <div class="battle-label">Computer</div>
+                </div>
+            </div>
+
+            <div class="choices-grid">
+                <div class="choice-card" data-choice="rock">
+                    <div class="choice-icon">✊</div>
+                    <div class="choice-name">Rock</div>
+                </div>
+                <div class="choice-card" data-choice="paper">
+                    <div class="choice-icon">✋</div>
+                    <div class="choice-name">Paper</div>
+                </div>
+                <div class="choice-card" data-choice="scissors">
+                    <div class="choice-icon">✌️</div>
+                    <div class="choice-name">Scissors</div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button class="btn btn-reset" id="resetBtn">Reset Game</button>
+            </div>
+        </div>
+
+        <div class="round-history" id="historySection" style="display: none;">
+            <div class="history-title">Round History</div>
+            <div id="historyList"></div>
         </div>
     </div>
-    <div class="msg-container">
-        <p id="msg">play your move</p>
-    </div>
-    <script src="game.js"></script>
+
+    <script src="script.js"></script>
 </body>
 </html>
